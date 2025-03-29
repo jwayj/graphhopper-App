@@ -92,16 +92,16 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activity)
 
-    // Mapbox Navigation Core 라이브러리
-    implementation ("com.mapbox.navigation:android:2.11.1")
+    // GraphHopper 코어
+    implementation ("com.graphhopper:graphhopper-core:6.0")
+    implementation ("com.github.giscience:graphhopper:0.11.0-pre1")
 
-    // 지도 및 UI 컴포넌트
-    implementation ("com.mapbox.navigation:ui-maps:2.11.1")
-    implementation ("com.mapbox.navigation:ui-components:2.11.1")
+    // MapLibre 통합
+    implementation ("org.maplibre.gl:android-sdk:9.6.0")
+    implementation ("com.mapbox.navigator:mapbox-navigation-native:7.1.0")
 
-    // 기타 유틸리티 (선택적)
-    implementation ("com.mapbox.navigation:tripdata:2.11.1")
-    implementation ("com.mapbox.navigation:voice:2.11.1")
+    // 지오코딩 지원
+    implementation ("com.graphhopper:geocoder:0.10")
 }
 
 apply {

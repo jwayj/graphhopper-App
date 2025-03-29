@@ -8,12 +8,9 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class Popup extends AppCompatActivity {
 
@@ -75,26 +72,27 @@ public class Popup extends AppCompatActivity {
     }
 
     public void onSearchRouteClicked(View view) {
+        // 입력값 파싱
         String start = editStart.getText().toString();
         String destination = editDestination.getText().toString();
-        String distanceStr = editDistance.getText().toString();
+        String distance = editDistance.getText().toString();
 
-        // 거리 값 숫자 변환 검증
-        try {
-            double desiredDistance = Double.parseDouble(distanceStr);
-
-            Intent intent = new Intent(Popup.this, MockNavigationActivity.class);
-            intent.putExtra("start_address", start);
-            intent.putExtra("end_address", destination);
-            intent.putExtra("desired_distance", desiredDistance);
-
-            startActivity(intent); // 새 액티비티 시작
-            finish(); // 현재 팝업 닫기
-
-        } catch (NumberFormatException e) {
-            editDistance.setError("유효한 숫자를 입력하세요");
-            editDistance.requestFocus();
+        // 유효성 검사
+        if (start.isEmpty() || destination.isEmpty() || distance.isEmpty()) {
+            showErrorToast("모든 값을 입력해주세요.");
+            return;
         }
+
+        // MockNavigationActivity로 데이터 전달
+        Intent intent = new Intent(Popup.this, MockNavigationActivity.class);
+        intent.putExtra("start", start);
+        intent.putExtra("destination", destination);
+        intent.putExtra("distance", distance);
+        startActivity(intent);
+    }
+
+    private void showErrorToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 
