@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
 }
 
 apply {
@@ -27,7 +28,7 @@ android {
 
     defaultConfig {
         applicationId = "org.maplibre.navigation.android.example"
-        compileSdk = 34
+        compileSdk = 35
         minSdk = 21
 
         versionCode = 1
@@ -35,6 +36,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -49,15 +51,6 @@ android {
 
     buildFeatures {
         buildConfig = true
-    }
-
-    dexOptions {
-        maxProcessCount = 8
-        javaMaxHeapSize = "2g"
-        preDexLibraries = true
-    }
-
-    buildFeatures {
         viewBinding = true
     }
 
@@ -75,12 +68,14 @@ dependencies {
         exclude(group = "org.maplibre.gl", module = "android-sdk-geojson")
         exclude(group = "org.maplibre.gl", module = "android-sdk-turf")
     }
+    implementation ("org.maplibre.navigation:ui:2.3.0")  // 최신 버전 확인
+    implementation ("org.maplibre.navigation:core:2.3.0")
+    implementation ("org.maplibre.navigation:android-core:3.1.0")
 
     // Support libraries
     implementation(libs.material)
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.cardview)
     implementation(libs.androidx.cardview)
 
     implementation(libs.play.services.location)
@@ -93,6 +88,20 @@ dependencies {
 
     implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.multidex)
+    implementation ("com.jakewharton.timber:timber:4.7.1")
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.activity)
+
+    // Mapbox Navigation Core 라이브러리
+    implementation ("com.mapbox.navigation:android:2.11.1")
+
+    // 지도 및 UI 컴포넌트
+    implementation ("com.mapbox.navigation:ui-maps:2.11.1")
+    implementation ("com.mapbox.navigation:ui-components:2.11.1")
+
+    // 기타 유틸리티 (선택적)
+    implementation ("com.mapbox.navigation:tripdata:2.11.1")
+    implementation ("com.mapbox.navigation:voice:2.11.1")
 }
 
 apply {

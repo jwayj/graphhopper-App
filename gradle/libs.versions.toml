@@ -1,5 +1,5 @@
 [versions]
-android-gradle-plugin = "8.6.1"
+android-gradle-plugin = "8.8.0"
 kotlin = "2.1.0"
 kotlinx-serialization-json = "1.8.0"
 kotlinx-coroutines = "1.10.1"
@@ -27,6 +27,8 @@ mapbox-geojson = "5.8.0"
 mockito = "5.14.1"
 junit = "4.13.2"
 leakcanary = "2.14"
+appcompat = "1.7.0"
+activity = "1.10.1"
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
@@ -73,3 +75,5 @@ mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 mockito = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }

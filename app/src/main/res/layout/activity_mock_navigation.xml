@@ -31,20 +31,20 @@
         app:maplibre_uiRotateGestures="true"
         app:maplibre_uiScrollGestures="true"
         app:maplibre_uiTiltGestures="true"
-        app:maplibre_uiZoomGestures="true" />
+        app:maplibre_uiZoomGestures="true" >
 
-    <Button
-        android:id="@+id/startRouteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Start route"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/startRouteButton"
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/light_blue"
+            android:text="시작"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </org.maplibre.android.maps.MapView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/newLocationFab"
@@ -56,6 +56,7 @@
         android:src="@drawable/ic_new_location"
         android:tint="@android:color/white"
         app:backgroundTint="@color/colorPrimary"
+        android:contentDescription="새 위치 추가"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
